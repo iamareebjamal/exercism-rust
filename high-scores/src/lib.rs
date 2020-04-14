@@ -22,8 +22,8 @@ impl<'a> HighScores<'a> {
 
     pub fn personal_top_three(&self) -> Vec<u32> {
         let mut vec = self.scores().to_vec();
-        vec.sort_by(|a, b| b.cmp(a));
+        vec.sort();
 
-        vec.iter().take(3).copied().collect()
+        vec.iter().rev().take(3).copied().collect()
     }
 }
